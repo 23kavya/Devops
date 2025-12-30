@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Welcome to Dashboard</h2>
+
+    <h3>Submit Complaint</h3>
+    <form action="/complaint" method="POST">
+        Title: <input type="text" name="title"><br><br>
+        Description:<br>
+        <textarea name="description"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>All Complaints</h3>
+    <ul>
+        {% for c in complaints %}
+            <li>
+                <b>{{ c.title }}</b> - {{ c.description }} 
+                [{{ c.status }}]
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>
